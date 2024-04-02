@@ -1,0 +1,11 @@
+# General exclusions
+node_modules/
+.vscode/
+
+# Specific exclusions for React
+/react/node_modules/
+/react/build/
+
+# Specific exclusions for Vue
+/vue/node_modules/
+/vue/dist/
