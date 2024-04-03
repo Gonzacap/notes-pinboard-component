@@ -1,0 +1,41 @@
+.npb_pinboard {
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
+
+/* Remove default styles*/
+ul,
+li {
+    list-style: none;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin: auto;
+    padding: 10px 0;
+}
+
+li {
+    position: relative;
+    margin: 2em;
+}
+
+
+@media (max-width: 575px) {
+    ul {
+        display: block;
+        grid-template-columns: none;
+        overflow-x: scroll;
+        white-space: nowrap;
+        width: 100%;
+        position: relative;
+    }
+}
+
+@media (min-width: 576px) and (max-width:992px) {
+    /* */
+}

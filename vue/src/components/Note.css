@@ -1,0 +1,105 @@
+:root {
+
+    --note-text-color: #212529;
+    --note-bg-color: #ffffcc;
+    --note-bg-color-even: #ccffcc;
+    --note-bg-color-3d: #ccccff;
+    --note-bg-color-5d: #fec3ef;
+
+    --note-desktop-size: 12em;
+    --note-mobile-size: 10em;
+
+    --note-shadow-color: rgba(33, 33, 33, .7);
+    --note-shadow: 5px 5px 7px var(--note-shadow-color);
+    --note-select-shadow-color: rgba(0, 0, 0, .7);
+    --note-select-shadow: 10px 10px 7px var(--note-select-shadow-color);
+
+    --note-tilt: rotate(-4deg);
+
+    --note-zoom: scale(1.25);
+}
+
+.npb_note_div {
+    color: var(--note-text-color);
+    background: var(--note-bg-color);
+    height: var(--note-desktop-size);
+    width: var(--note-desktop-size);
+    padding: 1em;
+
+    /* shadows */
+    -moz-box-shadow: var(--note-shadow);
+    -webkit-box-shadow: var(--note-shadow);
+    box-shadow: var(--note-shadow);
+
+    /* transitions */
+    transition: transform .15s linear;
+    -moz-transition: -moz-transform .15s linear;
+    -o-transition: -o-transform .15s linear;
+    -webkit-transition: -webkit-transform .15s linear;
+}
+
+.npb_note:nth-child(even) .npb_note_div {
+    background: var(--note-bg-color-even);
+}
+
+.npb_note:nth-child(3n) .npb_note_div {
+    background: var(--note-bg-color-3d);
+}
+
+.npb_note:nth-child(5n) .npb_note_div {
+    background: var(--note-bg-color-5d);
+}
+
+.npb_note_title {
+    font-size: 140%;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.npb_note_div:hover,
+.npb_note_div:focus {
+
+    /* shadows */
+    box-shadow: var(--note-select-shadow);
+    -moz-box-shadow: var(--note-select-shadow);
+    -webkit-box-shadow: var(--note-select-shadow);
+
+    /* transform */
+    transform: var(--note-zoom);
+    -webkit-transform: var(--note-zoom);
+    -moz-transform: var(--note-zoom);
+    -o-transform: var(--note-zoom);
+
+    /* position: relative; */
+    /* z-index: 5; */
+}
+
+@media (max-width: 575px) {
+
+    li {
+        display: inline-block;
+        white-space: normal;
+        transform: var(--note-tilt);
+        -o-transform: var(--note-tilt);
+        -webkit-transform: var(--note-tilt);
+        -moz-transform: var(--note-tilt);
+        width: auto;
+        margin: 2em -30% 2em 10px;
+    }
+
+    .npb_note:hover,
+    .npb_note:focus {
+        transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        margin: 2em 15%;
+    }
+}
+
+@media (min-width: 576px) and (max-width:992px) {
+    .npb_note_div {
+        height: 10em;
+        width: 10em;
+    }
+}

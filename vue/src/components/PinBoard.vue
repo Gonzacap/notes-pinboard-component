@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps  } from 'vue';
 import Note from './Note.vue';
+import './PinBoard.css';
 
 const {
     noteList
