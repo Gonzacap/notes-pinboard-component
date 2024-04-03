@@ -11,7 +11,7 @@ const {
 
 <template>
     <div class="npb_pinboard">
-        <ul>
+        <ul class="npb_pinboard_card_locations">
             <Note
             v-for="(note, index) in noteList"
             :title="note.title"

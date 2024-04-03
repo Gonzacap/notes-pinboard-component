@@ -19,6 +19,14 @@
     --note-zoom: scale(1.25);
 }
 
+.npb_note {
+    /* Remove default styles*/
+    list-style: none;
+    /* Styles */
+    position: relative;
+    margin: 2em;
+}
+
 .npb_note_div {
     color: var(--note-text-color);
     background: var(--note-bg-color);
@@ -69,14 +77,11 @@
     -webkit-transform: var(--note-zoom);
     -moz-transform: var(--note-zoom);
     -o-transform: var(--note-zoom);
-
-    /* position: relative; */
-    /* z-index: 5; */
 }
 
 @media (max-width: 575px) {
 
-    li {
+    .npb_note {
         display: inline-block;
         white-space: normal;
         transform: var(--note-tilt);

@@ -1,16 +1,20 @@
+:root {
+    --board-color-def-1: rgb(230, 205, 185);
+    --board-color-def-2: rgb(225, 185, 140);
+}
+
 .npb_pinboard {
     display: flex;
     justify-content: center;
+    background: var(--board-color-1);
+    background: linear-gradient(45deg, var(--board-color-def-1) 0%, var(--board-color-def-2) 100%);
     padding: 2px;
 }
 
-/* Remove default styles*/
-ul,
-li {
+.npb_pinboard_card_locations {
+    /* Remove default styles*/
     list-style: none;
-}
-
-ul {
+    /* Styles */
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -19,14 +23,8 @@ ul {
     padding: 10px 0;
 }
 
-li {
-    position: relative;
-    margin: 2em;
-}
-
-
 @media (max-width: 575px) {
-    ul {
+    .npb_pinboard_card_locations {
         display: block;
         grid-template-columns: none;
         overflow-x: scroll;
