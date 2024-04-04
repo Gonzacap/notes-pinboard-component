@@ -25,12 +25,13 @@
 
 @media (max-width: 575px) {
     .npb_pinboard_card_locations {
-        display: block;
-        grid-template-columns: none;
-        overflow-x: scroll;
-        white-space: nowrap;
+        /* Change to row so they look side by side */
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
         width: 100%;
-        position: relative;
+        padding: 10px 0;
     }
 }
 
