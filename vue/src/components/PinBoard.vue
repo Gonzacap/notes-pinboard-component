@@ -14,8 +14,10 @@ const {
         <ul class="npb_pinboard_card_locations">
             <Note
             v-for="(note, index) in noteList"
+            :icon="note.icon"
             :title="note.title"
             :description="note.description"
+            :footer="note.footer"
             ></Note>
         </ul>
     </div>
