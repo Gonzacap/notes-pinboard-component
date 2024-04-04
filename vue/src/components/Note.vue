@@ -17,13 +17,14 @@ const sanitizedFooter = DOMPurify.sanitize(footer);
 <template>
     <li class="npb_note">
         <div class="npb_note_div">
-            <h2 class="npb_note_title">{{title}}</h2>
+            <p class="npb_note_title">{{title}}</p>
             <div class="npb_note_description" v-if="sanitizedDescription" v-html="sanitizedDescription"></div>
             <template v-if="sanitizedFooter">
                 <hr />
                 <div class="npb_note_footer" v-html="sanitizedFooter"></div>
             </template>
         </div>
+        <div class="npb_note_div_back"></div>
     </li>
 </template>
 

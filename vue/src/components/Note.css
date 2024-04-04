@@ -5,6 +5,7 @@
     --note-bg-color-even: #ccffcc;
     --note-bg-color-3d: #ccccff;
     --note-bg-color-5d: #fec3ef;
+    --note-bg-color-shadow: rgba(0, 0, 0, .5);
 
     --note-desktop-size: 250px;
     --note-tablet-size: 250px;
@@ -16,20 +17,27 @@
     --note-select-shadow: 10px 10px 7px var(--note-select-shadow-color);
 
     --note-tilt: rotate(-4deg);
-
+    --note-no-tilt: rotate(0deg);
     --note-zoom: scale(1.25);
 }
 
 .npb_note {
-    /* Remove default styles*/
-    list-style: none;
-    /* Styles */
+    display: flex;
     position: relative;
+}
+
+.npb_note_div_back {
+    background-color: var(--note-bg-color-shadow);
+    clip-path: polygon(85% 0, 85% 15%, 100% 15%);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .npb_note_div {
     color: var(--note-text-color);
-    background: var(--note-bg-color);
+    background-color: var(--note-bg-color);
 
     /* shadows */
     -moz-box-shadow: var(--note-shadow);
@@ -41,6 +49,9 @@
     -moz-transition: -moz-transform .15s linear;
     -o-transition: -o-transform .15s linear;
     -webkit-transition: -webkit-transform .15s linear;
+
+    clip-path: polygon(85% 0, 100% 15%, 100% 100%, 0 100%, 0 0);
+    z-index: 1;
 }
 
 .npb_note:nth-child(even) .npb_note_div {
@@ -56,9 +67,17 @@
 }
 
 .npb_note_title {
-    font-size: 140%;
+    font-size: 1.5em;
     font-weight: bold;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.npb_note_description {
+    min-height: 110px;
+}
+
+.npb_note_footer {
+    max-height: 44px;
 }
 
 .npb_note_div:hover,
@@ -90,6 +109,7 @@
         margin: 1rem -30% 1rem 10px;
     }
 
+    .npb_note_div_back,
     .npb_note_div {
         height: var(--note-mobile-size);
         width: var(--note-mobile-size);
@@ -98,10 +118,10 @@
 
     .npb_note:hover,
     .npb_note:focus {
-        transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
+        transform: var(--note-no-tilt);
+        -o-transform: var(--note-no-tilt);
+        -webkit-transform: var(--note-no-tilt);
+        -moz-transform: var(--note-no-tilt);
         margin: 2em 15%;
     }
 }
@@ -113,6 +133,7 @@
         margin: 1.5rem;
     }
 
+    .npb_note_div_back,
     .npb_note_div {
         height: var(--note-tablet-size);
         width: var(--note-tablet-size);
@@ -127,6 +148,7 @@
         margin: 1.5rem;
     }
 
+    .npb_note_div_back,
     .npb_note_div {
         height: var(--note-desktop-size);
         width: var(--note-desktop-size);
