@@ -1,4 +1,5 @@
 :root {
+    --black-color: #212529;
     --board-color-def-1: rgb(230, 205, 185);
     --board-color-def-2: rgb(225, 185, 140);
 }
@@ -9,6 +10,7 @@
     background: var(--board-color-1);
     background: linear-gradient(45deg, var(--board-color-def-1) 0%, var(--board-color-def-2) 100%);
     padding: 2px;
+    border: 1px solid var(--black-color);
 }
 
 .npb_pinboard_card_locations {
@@ -16,11 +18,11 @@
     list-style: none;
     /* Styles */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     overflow: hidden;
     margin: auto;
-    padding: 10px 0;
+    padding: 1.5rem 0;
 }
 
 @media (max-width: 575px) {
