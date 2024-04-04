@@ -80,15 +80,17 @@
     max-height: 44px;
 }
 
+/* Shadows */
 .npb_note_div:hover,
 .npb_note_div:focus {
-
-    /* shadows */
     box-shadow: var(--note-select-shadow);
     -moz-box-shadow: var(--note-select-shadow);
     -webkit-box-shadow: var(--note-select-shadow);
+}
 
-    /* transform */
+/* Transformations */
+.npb_note:hover,
+.npb_note:focus {
     transform: var(--note-zoom);
     -webkit-transform: var(--note-zoom);
     -moz-transform: var(--note-zoom);
