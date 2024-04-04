@@ -19,6 +19,7 @@
     /* Styles */
     display: flex;
     justify-content: space-evenly;
+    gap: 1rem;
     flex-wrap: wrap;
     overflow: hidden;
     margin: auto;
