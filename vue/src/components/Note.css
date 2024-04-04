@@ -11,8 +11,8 @@
     --note-tablet-size: 250px;
     --note-mobile-size: 250px;
 
-    --note-shadow-color: rgba(33, 33, 33, .7);
-    --note-shadow: 5px 5px 7px var(--note-shadow-color);
+    --note-shadow-color: rgba(33, 33, 33, .5);
+    --note-shadow: 10px 5px 5px var(--note-shadow-color);
     --note-select-shadow-color: rgba(0, 0, 0, .7);
     --note-select-shadow: 10px 10px 7px var(--note-select-shadow-color);
 
@@ -24,6 +24,9 @@
 .npb_note {
     display: flex;
     position: relative;
+
+    /* Shadows */
+    filter: drop-shadow(var(--note-shadow));
 }
 
 .npb_note_div_back {
@@ -38,11 +41,6 @@
 .npb_note_div {
     color: var(--note-text-color);
     background-color: var(--note-bg-color);
-
-    /* shadows */
-    -moz-box-shadow: var(--note-shadow);
-    -webkit-box-shadow: var(--note-shadow);
-    box-shadow: var(--note-shadow);
 
     /* transitions */
     transition: transform .15s linear;
@@ -81,11 +79,9 @@
 }
 
 /* Shadows */
-.npb_note_div:hover,
-.npb_note_div:focus {
-    box-shadow: var(--note-select-shadow);
-    -moz-box-shadow: var(--note-select-shadow);
-    -webkit-box-shadow: var(--note-select-shadow);
+.npb_note:hover,
+.npb_note:focus {
+    filter: drop-shadow(var(--note-select-shadow));
 }
 
 /* Transformations */
