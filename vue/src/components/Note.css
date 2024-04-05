@@ -42,6 +42,8 @@
     color: var(--note-text-color);
     background-color: var(--note-bg-color);
 
+    overflow-y: auto;
+
     /* transitions */
     transition: transform .15s linear;
     -moz-transition: -moz-transform .15s linear;
@@ -67,7 +69,7 @@
 .npb_note_pin_div {
     text-align: center;
     height: 48px;
-    margin: 0
+    margin: 0;
 }
 
 .npb_note_title {
@@ -97,6 +99,11 @@
     -webkit-transform: var(--note-zoom);
     -moz-transform: var(--note-zoom);
     -o-transform: var(--note-zoom);
+}
+
+.npb_note:hover .npb_note_pin_div,
+.npb_note:focus .npb_note_pin_div {
+    text-align: right;
 }
 
 /* Mobile */
