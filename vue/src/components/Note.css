@@ -9,7 +9,7 @@
 
     --note-desktop-size: 250px;
     --note-tablet-size: 250px;
-    --note-mobile-size: 250px;
+    --note-mobile-size: 300px;
 
     --note-shadow-color: rgba(33, 33, 33, .5);
     --note-shadow: 10px 5px 5px var(--note-shadow-color);
@@ -104,10 +104,15 @@
     position: absolute;
     top: 0;
     right: 0;
+    transition: transform 0.2s ease;
     transform: translateY(-50%);
 }
 
 .npb_note:hover .npb_note_div_back {
+    display: none;
+}
+
+::-webkit-scrollbar {
     display: none;
 }
 
@@ -137,11 +142,12 @@
         -o-transform: var(--note-no-tilt);
         -webkit-transform: var(--note-no-tilt);
         -moz-transform: var(--note-no-tilt);
-        margin: 2em 15%;
+        /* margin: 2em 15%; */
+        /* transform: translateX(-50%); */
     }
 }
 
-@media (min-width: 576px) and (max-width:991px) {
+@media (min-width: 576px) and (max-width:992px) {
 
     .npb_note {
         margin: 2rem 1.5rem;
