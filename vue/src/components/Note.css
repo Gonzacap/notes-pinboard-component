@@ -27,6 +27,11 @@
 
     /* Shadows */
     filter: drop-shadow(var(--note-shadow));
+    /* transitions */
+    transition: transform .15s linear;
+    -moz-transition: -moz-transform .15s linear;
+    -o-transition: -o-transform .15s linear;
+    -webkit-transition: -webkit-transform .15s linear;
 }
 
 .npb_note_div_back {
@@ -43,13 +48,6 @@
     background-color: var(--note-bg-color);
 
     overflow-y: auto;
-
-    /* transitions */
-    transition: transform .15s linear;
-    -moz-transition: -moz-transform .15s linear;
-    -o-transition: -o-transform .15s linear;
-    -webkit-transition: -webkit-transform .15s linear;
-
     clip-path: polygon(85% 0, 100% 15%, 100% 100%, 0 100%, 0 0);
     z-index: 1;
 }
@@ -86,27 +84,34 @@
     max-height: 44px;
 }
 
-/* Shadows */
+/* Shadows and Transformations on Hover/Focus */
 .npb_note:hover,
 .npb_note:focus {
     filter: drop-shadow(var(--note-select-shadow));
-}
-
-/* Transformations */
-.npb_note:hover,
-.npb_note:focus {
     transform: var(--note-zoom);
     -webkit-transform: var(--note-zoom);
     -moz-transform: var(--note-zoom);
     -o-transform: var(--note-zoom);
 }
 
-.npb_note:hover .npb_note_pin_div,
-.npb_note:focus .npb_note_pin_div {
-    text-align: right;
+.npb_note:hover .npb_note_div,
+.npb_note:focus .npb_note_div {
+    clip-path: none;
 }
 
-/* Mobile */
+.npb_note:hover .npb_note_pin_div,
+.npb_note:focus .npb_note_pin_div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.npb_note:hover .npb_note_div_back {
+    display: none;
+}
+
+/* Media Queries for Responsive Design */
 @media (max-width: 576px) {
 
     .npb_note {
@@ -116,7 +121,6 @@
         -o-transform: var(--note-tilt);
         -webkit-transform: var(--note-tilt);
         -moz-transform: var(--note-tilt);
-        /* width: auto; */
         margin: 1rem -30% 1rem 10px;
     }
 
@@ -137,7 +141,6 @@
     }
 }
 
-/* Tablet */
 @media (min-width: 576px) and (max-width:991px) {
 
     .npb_note {
@@ -152,7 +155,6 @@
     }
 }
 
-/* Desktop */
 @media (min-width: 992px) {
 
     .npb_note {
