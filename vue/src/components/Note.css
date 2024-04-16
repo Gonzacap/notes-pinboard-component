@@ -18,12 +18,15 @@
 
     --note-tilt: rotate(-4deg);
     --note-no-tilt: rotate(0deg);
-    --note-zoom: scale(1.25);
+    --note-zoom: scale(1.24) translateZ(0);
 }
 
 .npb_note {
     display: flex;
     position: relative;
+
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
 
     /* Shadows */
     filter: drop-shadow(var(--note-shadow));
@@ -87,6 +90,9 @@
 /* Shadows and Transformations on Hover/Focus */
 .npb_note:hover,
 .npb_note:focus {
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+
     filter: drop-shadow(var(--note-select-shadow));
     transform: var(--note-zoom);
     -webkit-transform: var(--note-zoom);
