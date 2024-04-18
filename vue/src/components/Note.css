@@ -148,8 +148,7 @@
         -o-transform: var(--note-no-tilt);
         -webkit-transform: var(--note-no-tilt);
         -moz-transform: var(--note-no-tilt);
-        /* margin: 2em 15%; */
-        /* transform: translateX(-50%); */
+        margin: auto;
     }
 }
 
