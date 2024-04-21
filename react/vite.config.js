@@ -1,3 +1,4 @@
+import { resolve } from 'path'
 import { defineConfig, transformWithEsbuild } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -25,6 +26,27 @@ export default defineConfig({
     esbuildOptions: {
       loader: {
         '.js': 'jsx',
+      },
+    },
+  },
+
+  build: {
+    lib: {
+      entry: {
+        PinBoard: resolve(__dirname, 'src/components/PinBoard/index.js'),
+        Note: resolve(__dirname, 'src/components/Note/index.js'),
+      },
+      name: '[NotesPinBoard]',
+      fileName: (format) => `notes-pinboard.${format}.js`,
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom', 'dompurify'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+          dompurify: 'DOMPurify',
+        },
       },
     },
   },

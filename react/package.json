@@ -1,15 +1,21 @@
 {
-  "name": "react",
-  "private": true,
-  "version": "0.0.0",
+  "name": "notes-pinboard",
+  "description": "Component to display data in notes on a pinboard",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "main": "dist/Note.min.js, dist/PinBoard.min.js",
+  "module": "dist/Note.esm.js, dist/PinBoard.esm.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "peerDependencies": {
     "dompurify": "^3.0.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
