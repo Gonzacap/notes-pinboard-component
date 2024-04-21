@@ -1,0 +1,181 @@
+.npb_note {
+
+    --note-text-color: #212529;
+    --note-bg-color: #ffffcc;
+    --note-bg-color-even: #ccffcc;
+    --note-bg-color-3d: #ccccff;
+    --note-bg-color-5d: #fec3ef;
+    --note-bg-color-shadow: rgba(0, 0, 0, .3);
+
+    --note-desktop-size: 250px;
+    --note-tablet-size: 250px;
+    --note-mobile-size: 300px;
+
+    --note-shadow-color: rgba(33, 33, 33, .5);
+    --note-shadow: 10px 5px 5px var(--note-shadow-color);
+    --note-select-shadow-color: rgba(0, 0, 0, .7);
+    --note-select-shadow: 10px 10px 7px var(--note-select-shadow-color);
+
+    --note-tilt: rotate(-4deg);
+    --note-no-tilt: rotate(0deg);
+    --note-zoom: scale(1.24) translateZ(0);
+}
+
+.npb_note {
+    display: flex;
+    position: relative;
+
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+
+    /* Shadows */
+    filter: drop-shadow(var(--note-shadow));
+    /* transitions */
+    transition: transform .15s linear;
+    -moz-transition: -moz-transform .15s linear;
+    -o-transition: -o-transform .15s linear;
+    -webkit-transition: -webkit-transform .15s linear;
+}
+
+.npb_note_div_back {
+    background-color: var(--note-bg-color-shadow);
+    clip-path: polygon(85% 0, 85% 15%, 100% 15%);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.npb_note_div {
+    color: var(--note-text-color);
+    background-color: var(--note-bg-color);
+
+    overflow-y: auto;
+    clip-path: polygon(85% 0, 100% 15%, 100% 100%, 0 100%, 0 0);
+    z-index: 1;
+}
+
+.npb_note:nth-child(even) .npb_note_div {
+    background: var(--note-bg-color-even);
+}
+
+.npb_note:nth-child(3n) .npb_note_div {
+    background: var(--note-bg-color-3d);
+}
+
+.npb_note:nth-child(5n) .npb_note_div {
+    background: var(--note-bg-color-5d);
+}
+
+.npb_note_pin_div {
+    text-align: center;
+    height: 48px;
+    margin: 0;
+}
+
+.npb_note_title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.npb_note_description {
+    min-height: 110px;
+}
+
+.npb_note_footer {
+    max-height: 44px;
+}
+
+/* Shadows and Transformations on Hover/Focus */
+.npb_note:hover,
+.npb_note:focus {
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+
+    filter: drop-shadow(var(--note-select-shadow));
+    transform: var(--note-zoom);
+    -webkit-transform: var(--note-zoom);
+    -moz-transform: var(--note-zoom);
+    -o-transform: var(--note-zoom);
+}
+
+.npb_note:hover .npb_note_div,
+.npb_note:focus .npb_note_div {
+    clip-path: none;
+}
+
+.npb_note:hover .npb_note_pin_div,
+.npb_note:focus .npb_note_pin_div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: transform 0.2s ease;
+    transform: translateY(-50%);
+}
+
+.npb_note:hover .npb_note_div_back {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 576px) {
+
+    .npb_note {
+        display: inline-block;
+        white-space: normal;
+        transform: var(--note-tilt);
+        -o-transform: var(--note-tilt);
+        -webkit-transform: var(--note-tilt);
+        -moz-transform: var(--note-tilt);
+        margin: 1rem -30% 1rem 10px;
+    }
+
+    .npb_note_div_back,
+    .npb_note_div {
+        height: var(--note-mobile-size);
+        width: var(--note-mobile-size);
+        padding: 0.5rem;
+    }
+
+    .npb_note:hover,
+    .npb_note:focus {
+        transform: var(--note-no-tilt);
+        -o-transform: var(--note-no-tilt);
+        -webkit-transform: var(--note-no-tilt);
+        -moz-transform: var(--note-no-tilt);
+        margin: auto;
+    }
+}
+
+@media (min-width: 576px) and (max-width:992px) {
+
+    .npb_note {
+        margin: 2rem 1.5rem;
+    }
+
+    .npb_note_div_back,
+    .npb_note_div {
+        height: var(--note-tablet-size);
+        width: var(--note-tablet-size);
+        padding: 0.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .npb_note {
+        margin: 2rem 1.5rem;
+    }
+
+    .npb_note_div_back,
+    .npb_note_div {
+        height: var(--note-desktop-size);
+        width: var(--note-desktop-size);
+        padding: 1rem;
+    }
+}
