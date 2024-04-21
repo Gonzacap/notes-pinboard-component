@@ -8,7 +8,9 @@ import './App.css'
 function App() {
   const [noteList, setNoteList] = useState(data)
 
-  useEffect(() => setNoteList(data), [data]);
+  useEffect(() => {
+    setNoteList(data);
+  }, [data]);
 
   return (
     <>
