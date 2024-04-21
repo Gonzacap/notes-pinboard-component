@@ -1,8 +1,7 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import DOMPurify from 'dompurify';
-import iconPinUp from '../assets/icon-pin-up.svg';
-import iconPinDown from '../assets/icon-pin-down.svg';
+import IconPinUp from '../assets/icon-pin-up.svg';
+import IconPinDown from '../assets/icon-pin-down.svg';
 import './style.css';
 
 const Note = ({ icon, title, description, footer }) => {
@@ -15,12 +14,8 @@ const Note = ({ icon, title, description, footer }) => {
     const shortDescription = sanitizedDescription.length > maxLength ? sanitizedDescription.substring(0, maxLength - 10) + '... ' : sanitizedDescription;
     const sanitizedFooter = DOMPurify.sanitize(footer);
 
-    const displayDescription = useEffect(() => {
-        isHovered ? sanitizedDescription : shortDescription;
-    }, [isHovered]);
-    const pinIconSrc = useEffect(() => {
-        isHovered ? iconPinUp : iconPinDown;
-    }, [isHovered]);
+    const displayDescription = isHovered ? sanitizedDescription : shortDescription;
+    const pinIconSrc = isHovered ? IconPinUp : IconPinDown;
 
     const handleMouseOver = () => {
         setIsHovered(true);
@@ -30,30 +25,26 @@ const Note = ({ icon, title, description, footer }) => {
         setIsHovered(false);
     };
 
-
-    return (<>
-        <li className="npb_note" onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave} onFocus={handleMouseOver} onBlur={handleMouseLeave}>
-            <div className="npb_note_div">
-                <div className="npb_note_pin_div">
-                    <img alt="Pin" src={pinIconSrc} width="48" height="48" />
+    return (
+        <>
+            <li className="npb_note" onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave} onFocus={handleMouseOver} onBlur={handleMouseLeave}>
+                <div className="npb_note_div">
+                    <div className="npb_note_pin_div">
+                        <img alt="Pin" src={pinIconSrc} width="48" height="48" />
+                    </div>
+                    <p className="npb_note_title">{title}</p>
+                    {sanitizedDescription && <div className="npb_note_description">{displayDescription}</div>}
+                    {sanitizedFooter && (
+                        <>
+                            <hr />
+                            <div className="npb_note_footer">{sanitizedFooter}</div>
+                        </>
+                    )}
                 </div>
-                <p className="npb_note_title">{title}</p>
-                {sanitizedDescription && (
-                    <div className="npb_note_description" value={displayDescription}></div>
-                )}
-                {sanitizedFooter && (
-                    <>
-                        <hr />
-                        <div className="npb_note_footer" value={sanitizedFooter}></div>
-                    </>
-                )}
-
-            </div>
-            <div className="npb_note_div_back"></div>
-        </li >
-    </ >
+                <div className="npb_note_div_back"></div>
+            </li>
+        </>
     );
-
 };
 
 export default Note;
