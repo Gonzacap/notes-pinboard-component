@@ -4,7 +4,7 @@ import IconPinUp from '../assets/icon-pin-up.svg';
 import IconPinDown from '../assets/icon-pin-down.svg';
 import './style.css';
 
-const Note = ({ icon, title, description, footer }) => {
+const Note = ({ icon, title, description, footer, onClick }) => {
 
     const maxLength = 100;
 
@@ -27,7 +27,7 @@ const Note = ({ icon, title, description, footer }) => {
 
     return (
         <>
-            <li className="npb_note" onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave} onFocus={handleMouseOver} onBlur={handleMouseLeave}>
+            <li className="npb_note" onClick={onClick} onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave} onFocus={handleMouseOver} onBlur={handleMouseLeave}>
                 <div className="npb_note_div">
                     <div className="npb_note_pin_div">
                         <img alt="Pin" src={pinIconSrc} width="48" height="48" />

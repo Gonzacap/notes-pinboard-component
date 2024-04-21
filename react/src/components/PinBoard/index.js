@@ -1,3 +1,4 @@
+import React from 'react';
 import Note from '../Note';
 import './style.css';
 
@@ -22,8 +23,8 @@ const PinBoard = ({ noteList }) => {
                             title={note?.title}
                             description={note?.description}
                             footer={note?.footer}
-                            onclick={() => centerOnFocus(note?.id || index)}
-                        ></Note>
+                            onClick={() => centerOnFocus(note?.id || index)}
+                        />
                     ))}
                 </ul>
             </div >
