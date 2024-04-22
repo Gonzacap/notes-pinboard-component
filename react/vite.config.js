@@ -37,6 +37,7 @@ export default defineConfig({
         Note: resolve(__dirname, 'src/components/Note/index.js'),
       },
       name: '[NotesPinBoard]',
+      formats: ['es', 'cjs'],
       fileName: (format) => `notes-pinboard.${format}.js`,
     },
     rollupOptions: {
